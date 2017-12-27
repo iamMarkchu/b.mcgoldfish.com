@@ -33,6 +33,85 @@ export const constantRouterMap = [
       component: _import('dashboard/index')
     }]
   },
+  {
+    path: '/article',
+    component: Layout,
+    meta: { title: 'Article', icon: 'form' },
+    children: [
+      {
+        path: 'index',
+        name: 'Article',
+        component: _import('article/index'),
+        meta: { title: 'Article', icon: 'form' }
+      },
+      {
+        path: 'create',
+        name: 'Article Create',
+        component: _import('article/create'),
+        meta: { title: 'Article Create', icon: 'form' }
+      },
+      {
+        path: 'edit/:id',
+        name: 'Article Edit',
+        component: _import('article/edit'),
+        meta: { title: 'Article Edit', icon: 'form' },
+        hidden: true
+      }
+    ]
+  },
+  {
+    path: '/tag',
+    component: Layout,
+    meta: { title: 'Tag', icon: 'form' },
+    children: [
+      {
+        path: 'index',
+        name: 'Tag',
+        component: _import('tag/index'),
+        meta: { title: 'Tag', icon: 'form' }
+      },
+      {
+        path: 'create',
+        name: 'Tag Create',
+        component: _import('tag/create'),
+        meta: { title: 'Tag Create', icon: 'form' }
+      },
+      {
+        path: 'edit/:id',
+        name: 'Tag Edit',
+        component: _import('tag/edit'),
+        meta: { title: 'Tag Edit', icon: 'form' },
+        hidden: true
+      }
+    ]
+  },
+  {
+    path: '/category',
+    component: Layout,
+    meta: { title: 'Category', icon: 'form' },
+    children: [
+      {
+        path: 'index',
+        name: 'Category',
+        component: _import('category/index'),
+        meta: { title: 'Category', icon: 'form' }
+      },
+      {
+        path: 'create',
+        name: 'Category Create',
+        component: _import('category/create'),
+        meta: { title: 'Category Create', icon: 'form' },
+        hidden: true
+      },
+      {
+        path: 'edit/:id',
+        name: 'Category Edit',
+        component: _import('category/edit'),
+        meta: { title: 'Category Edit', icon: 'form' },
+        hidden: true
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
