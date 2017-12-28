@@ -18,6 +18,11 @@ import { deleteImage, UploadRequestPath } from '@/api/upload'
 export default {
   name: 'upload',
   props: ['imageUrl'],
+  created() {
+    if (this.imageUrl.length > 0) {
+      this.previewList = [{ name: 'pic', url: process.env.BASE_API + this.imageUrl }]
+    }
+  },
   data() {
     return {
       uploadUrl: UploadRequestPath,
@@ -33,6 +38,7 @@ export default {
       this.emitImage(fileList)
     },
     remove(file, fileList) {
+      this.previewList = []
       // 删除服务器上物理位置图片
       const param = {
         uploadFile: file.response
@@ -42,17 +48,17 @@ export default {
       this.emitImage(fileList)
     },
     emitImage(fileList) {
-      const imageUrl = fileList.map(function(item) {
-        return item.response
-      })
+      let imageUrl = ''
+      if (fileList.length > 0) {
+        imageUrl = fileList[fileList.length - 1].response
+      }
+
       this.$emit('update:imageUrl', imageUrl)
     }
   },
   watch: {
-    imageUrl(val) {
-      if (val.length > 0) {
-        this.previewList = [{ name: 'pic', url: process.env.BASE_API + val }]
-      }
+    imageUrl: function(val) {
+      this.previewList = [{ name: 'pic', url: process.env.BASE_API + val }]
     }
   }
 }

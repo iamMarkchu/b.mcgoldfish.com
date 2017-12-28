@@ -36,51 +36,33 @@ export const constantRouterMap = [
   {
     path: '/article',
     component: Layout,
-    meta: { title: 'Article', icon: 'form' },
+    meta: { title: '文章中心', icon: 'article' },
     children: [
       {
         path: 'index',
         name: 'Article',
         component: _import('article/index'),
-        meta: { title: 'Article', icon: 'form' }
-      },
+        meta: { title: '文章', icon: 'article' }
+      }
+    ]
+  },
+  {
+    path: '/article',
+    component: Layout,
+    hidden: true,
+    children: [
       {
         path: 'create',
         name: 'Article Create',
         component: _import('article/create'),
-        meta: { title: 'Article Create', icon: 'form' }
+        meta: { title: '写文章' },
+        hidden: true
       },
       {
         path: 'edit/:id',
         name: 'Article Edit',
         component: _import('article/edit'),
-        meta: { title: 'Article Edit', icon: 'form' },
-        hidden: true
-      }
-    ]
-  },
-  {
-    path: '/tag',
-    component: Layout,
-    meta: { title: 'Tag', icon: 'form' },
-    children: [
-      {
-        path: 'index',
-        name: 'Tag',
-        component: _import('tag/index'),
-        meta: { title: 'Tag', icon: 'form' }
-      },
-      {
-        path: 'create',
-        name: 'Tag Create',
-        component: _import('tag/create'),
-        meta: { title: 'Tag Create', icon: 'form' }
-      },
-      {
-        path: 'edit/:id',
-        name: 'Tag Edit',
-        component: _import('tag/edit'),
-        meta: { title: 'Tag Edit', icon: 'form' },
+        meta: { title: '编辑文章' },
         hidden: true
       }
     ]
@@ -88,26 +70,68 @@ export const constantRouterMap = [
   {
     path: '/category',
     component: Layout,
-    meta: { title: 'Category', icon: 'form' },
+    meta: { title: '类别中心', icon: 'category' },
     children: [
       {
         path: 'index',
         name: 'Category',
         component: _import('category/index'),
-        meta: { title: 'Category', icon: 'form' }
-      },
+        meta: { title: '类别', icon: 'category' }
+      }
+    ]
+  },
+  {
+    path: '/category',
+    component: Layout,
+    meta: { title: '类别' },
+    hidden: true,
+    children: [
       {
         path: 'create',
         name: 'Category Create',
         component: _import('category/create'),
-        meta: { title: 'Category Create', icon: 'form' },
+        meta: { title: '创建类别' },
         hidden: true
       },
       {
         path: 'edit/:id',
         name: 'Category Edit',
         component: _import('category/edit'),
-        meta: { title: 'Category Edit', icon: 'form' },
+        meta: { title: '编辑类别' },
+        hidden: true
+      }
+    ]
+  },
+  {
+    path: '/tag',
+    component: Layout,
+    meta: { title: '标签中心', icon: 'tag' },
+    children: [
+      {
+        path: 'index',
+        name: 'Tag',
+        component: _import('tag/index'),
+        meta: { title: '标签', icon: 'tag' }
+      }
+    ]
+  },
+  {
+    path: '/tag',
+    component: Layout,
+    meta: { title: '标签' },
+    hidden: true,
+    children: [
+      {
+        path: 'create',
+        name: 'Tag Create',
+        component: _import('tag/create'),
+        meta: { title: '创建标签' }
+      },
+      {
+        path: 'edit/:id',
+        name: 'Tag Edit',
+        component: _import('tag/edit'),
+        meta: { title: '编辑标签' },
         hidden: true
       }
     ]
