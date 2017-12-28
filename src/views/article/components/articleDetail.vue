@@ -18,9 +18,9 @@
   </el-form-item>
   <el-form-item label="内容">
     <el-col :span="18">
-      <el-input type="textarea" v-model="article.content"></el-input>
+      <markdown-editor id="contentEditor" ref="contentEditor" v-model="article.content" :height="300" :zIndex="20"></markdown-editor>
     </el-col>
-  </el-form-item>
+  </el-form-item>  
   <el-form-item label="排序">
     <el-col :span="2">
       <el-input v-model="article.display_order"></el-input>
@@ -45,6 +45,7 @@
 <script>
 import { createArticle, fetchArticle, updateArticle } from '@/api/article'
 import upload from '@/components/Upload'
+import markdownEditor from '@/components/MarkdownEditor'
 import categorySelect from './categorySelect'
 import tagMutiSelect from './tagMutiSelect'
 const sourceOptions = [
@@ -92,6 +93,9 @@ export default {
     }
   },
   watch: {
+    'article.content': function(val) {
+      console.log(val)
+    }
   },
   methods: {
     fetchData() {
@@ -152,7 +156,8 @@ export default {
   components: {
     upload,
     categorySelect,
-    tagMutiSelect
+    tagMutiSelect,
+    markdownEditor
   }
 }
 </script>
