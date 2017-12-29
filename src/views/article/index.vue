@@ -114,8 +114,8 @@ export default {
     fetchData: function() {
       this.listLoading = true
       getList(this.listQuery).then(response => {
-        this.list = response.data.data
-        this.total = response.data.total
+        this.list = response.data.content.data
+        this.total = response.data.content.total
         this.listLoading = false
       })
     },
@@ -141,10 +141,12 @@ export default {
             active: '发布成功!',
             republish: '撤回成功!',
             deleted: '删除成功'
-          }
-          this.$message({
+          }          
+          this.$notify({
+            title: '成功',
             message: messageMap[status],
-            type: 'success'
+            type: 'success',
+            duration: 2000
           })
           row.status = response.data.content.status
           row.updated_at = response.data.content.updated_at

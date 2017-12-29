@@ -18,7 +18,7 @@
   </el-form-item>
   <el-form-item label="内容">
     <el-col :span="18">
-      <markdown-editor id="contentEditor" ref="contentEditor" v-model="article.content" :height="300" :zIndex="20"></markdown-editor>
+      <markdown-editor id="contentEditor" ref="contentEditor" v-model="article.content"></markdown-editor>
     </el-col>
   </el-form-item>  
   <el-form-item label="排序">
@@ -119,9 +119,11 @@ export default {
     create() {
       const that = this
       createArticle(this.article).then(response => {
-        that.$message({
-          message: 'create article success !',
-          type: 'success'
+        this.$notify({
+          title: '成功',
+          message: '提交成功',
+          type: 'success',
+          duration: 2000
         })
         that.$router.go(-1)
       }).catch(error => {
@@ -131,9 +133,11 @@ export default {
     update() {
       const that = this
       updateArticle(this.article).then(response => {
-        that.$message({
-          message: 'create article success !',
-          type: 'success'
+        this.$notify({
+          title: '成功',
+          message: '更新成功',
+          type: 'success',
+          duration: 2000
         })
         that.$router.go(-1)
       }).catch(error => {

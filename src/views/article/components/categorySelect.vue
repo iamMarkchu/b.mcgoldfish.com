@@ -60,9 +60,9 @@ export default {
   },
   methods: {
     fetchData: function() {
-      const params = {}
+      const params = { limit: 1000 }
       getList(params).then(response => {
-        this.categoryOptions = response.data.content.map(function(item) {
+        this.categoryOptions = response.data.content.data.map(function(item) {
           return { key: item.id, value: item.id, label: item.category_name }
         })
       }).catch(error => {
