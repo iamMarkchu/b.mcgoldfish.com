@@ -53,12 +53,6 @@ const sourceOptions = [
   { key: 'reprint', value: 'reprint', label: '转载' }
 ]
 
-const tagOptions = [
-  { key: '1', value: '1', label: 'php' },
-  { key: '2', value: '2', label: 'mysql' },
-  { key: '3', value: '3', label: 'mysql1' },
-  { key: '4', value: '4', label: 'mysql2' }
-]
 const defaultArticle = {
   id: undefined,
   category_id: null,
@@ -85,11 +79,9 @@ export default {
   },
   data() {
     return {
-      tagOptions,
       sourceOptions,
       article: Object.assign({}, defaultArticle),
-      visible2: false,
-      newCategory: ''
+      visible2: false
     }
   },
   watch: {

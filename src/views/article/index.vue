@@ -13,7 +13,7 @@
       </el-table-column>
       <el-table-column align="center" label="标题" min-width="150px">
         <template slot-scope="scope">          
-          <span><a href="javascript:;">《{{scope.row.title}}》</a> <el-tag>{{scope.row.category.category_name}}</el-tag></span>
+          <span><a href="javascript:;" @click="handleViewArticle(scope.row)">《{{scope.row.title}}》</a> <el-tag v-if="scope.row.category">{{scope.row.category.category_name}}</el-tag></span>
         </template>
       </el-table-column>
       <el-table-column align="center" label="状态" width="100">
@@ -141,7 +141,7 @@ export default {
             active: '发布成功!',
             republish: '撤回成功!',
             deleted: '删除成功'
-          }          
+          }
           this.$notify({
             title: '成功',
             message: messageMap[status],
@@ -154,6 +154,9 @@ export default {
       }).catch(error => {
         console.log(error)
       })
+    },
+    handleViewArticle(row) {
+      window.open(process.env.FRONT_URL + '/article/' + row.id)
     }
   }
 }

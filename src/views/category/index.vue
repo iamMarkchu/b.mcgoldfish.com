@@ -12,7 +12,7 @@
       <template slot-scope="scope">
         <span>{{scope.row.category_name}}</span>
       </template>
-    </el-table-column>    
+    </el-table-column>
     <el-table-column align="center" label="文章数量" width="100">
       <template slot-scope="scope">
         <span>{{scope.row.articles_count}}</span>
