@@ -2,7 +2,7 @@
 module.exports = {
   NODE_ENV: '"production"',
   BASE_API: '"/v1"',
-  CLIENT_ID: '"1"',
-  CLIENT_SECRET: '"o3DQg3kGCO7x4jOkeknuoPZ0T7bbGqATZdK0SckS"',
-  FRONT_URL: '"http://blog.mark"'
+  CLIENT_ID: '"2"',
+  CLIENT_SECRET: '"Htu6eC9OY2DryM6uceeW3pz9Lpwv7FibTexvdONf"',
+  FRONT_URL: '"http://www.mcgoldfish.com"'
 }
