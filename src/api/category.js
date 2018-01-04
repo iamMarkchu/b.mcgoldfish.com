@@ -14,18 +14,18 @@ export function fetchCategory(params) {
   })
 }
 
-export function createCategory(params) {
+export function createCategory(data) {
   return request({
     url: '/api/categories/',
     method: 'post',
-    params
+    data
   })
 }
 
-export function updateCategory(params) {
+export function updateCategory(data) {
   return request({
-    url: '/api/categories/' + params.id,
+    url: '/api/categories/' + data.id,
     method: 'put',
-    params
+    data
   })
 }

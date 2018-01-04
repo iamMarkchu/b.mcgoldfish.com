@@ -6,14 +6,14 @@
     <el-table :data="list" v-loading.body="listLoading" element-loading-text="Loading" border fit highlight-current-row>
       <el-table-column align="center" prop="id" label='编号' width="95">
       </el-table-column>
-      <el-table-column align="center" label="最后修改时间" width="180px">
+      <el-table-column align="center" label="最后修改时间" width="150">
         <template slot-scope="scope">
           {{scope.row.updated_at | parseTime('{y}/{m}/{d} {h}:{i}') }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="标题" min-width="150px">
+      <el-table-column align="center" label="标题" min-width="150">
         <template slot-scope="scope">          
-          <span><a href="javascript:;" @click="handleViewArticle(scope.row)">《{{scope.row.title}}》</a> <el-tag v-if="scope.row.category">{{scope.row.category.category_name}}</el-tag></span>
+          <span><a href="javascript:;" @click="handleViewArticle(scope.row)">{{scope.row.title}}</a> <el-tag v-if="scope.row.category">{{scope.row.category.category_name}}</el-tag></span>
         </template>
       </el-table-column>
       <el-table-column align="center" label="状态" width="100">
@@ -131,7 +131,7 @@ export default {
     },
     handleCurrentChange(val) {
       this.listQuery.page = val
-      this.getList()
+      this.fetchData()
     },
     handleChangeStatus(row, status) {
       const params = { id: row.id, status: status }

@@ -16,11 +16,6 @@
   <el-form-item label="标签">
     <tag-muti-select :tag_ids="article.tags" @create="handleCreateTag" @change="handleChangeTag"></tag-muti-select>
   </el-form-item>
-  <el-form-item label="内容">
-    <el-col :span="18">
-      <markdown-editor id="contentEditor" ref="contentEditor" v-model="article.content"></markdown-editor>
-    </el-col>
-  </el-form-item>  
   <el-form-item label="排序">
     <el-col :span="2">
       <el-input v-model="article.display_order"></el-input>
@@ -35,6 +30,11 @@
         :value="item.value">
       </el-option>
     </el-select>
+  </el-form-item>
+  <el-form-item label="内容">
+    <el-col :span="18">
+      <markdown-editor id="contentEditor" ref="contentEditor" v-model="article.content"></markdown-editor>
+    </el-col>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="onSubmit">保存</el-button>

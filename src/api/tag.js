@@ -14,18 +14,18 @@ export function fetchTag(params) {
   })
 }
 
-export function createTag(params) {
+export function createTag(data) {
   return request({
     url: '/api/tags/',
     method: 'post',
-    params
+    data
   })
 }
 
-export function updateTag(params) {
+export function updateTag(data) {
   return request({
-    url: '/api/tags/' + params.id,
+    url: '/api/tags/' + data.id,
     method: 'put',
-    params
+    data
   })
 }

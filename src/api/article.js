@@ -14,26 +14,26 @@ export function fetchArticle(params) {
   })
 }
 
-export function createArticle(params) {
+export function createArticle(data) {
   return request({
     url: '/api/articles/',
     method: 'post',
-    params
+    data
   })
 }
 
-export function updateArticle(params) {
+export function updateArticle(data) {
   return request({
-    url: '/api/articles/' + params.id,
+    url: '/api/articles/' + data.id,
     method: 'put',
-    params
+    data
   })
 }
 
-export function changeStatus(params) {
+export function changeStatus(data) {
   return request({
-    url: '/api/articles/' + params.id + '/change',
+    url: '/api/articles/' + data.id + '/change',
     method: 'put',
-    params
+    data
   })
 }

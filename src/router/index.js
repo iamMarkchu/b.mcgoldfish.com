@@ -136,6 +136,19 @@ export const constantRouterMap = [
       }
     ]
   },
+  {
+    path: '/image',
+    component: Layout,
+    meta: { title: '图片' },
+    children: [
+      {
+        path: 'index',
+        name: 'Image',
+        component: _import('image/index'),
+        meta: { title: '图片', icon: 'image' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
