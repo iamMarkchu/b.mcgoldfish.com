@@ -112,7 +112,7 @@ export default {
       }).catch(error => {
         console.log(error)
       })
-    },
+    }
   },
   filters: {
     parseTime
