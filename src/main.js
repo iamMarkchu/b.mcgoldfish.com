@@ -15,6 +15,11 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import objFilter from '@/utils/filters'
+Object.keys(objFilter).forEach(key => {
+  Vue.filter(key, objFilter[key])
+})
+
 Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false

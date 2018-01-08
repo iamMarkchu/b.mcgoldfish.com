@@ -78,22 +78,6 @@ export default {
     this.fetchData()
   },
   filters: {
-    statusFilter: function(val) {
-      const statusMap = {
-        republish: '待发布',
-        active: '有效',
-        deleted: '已删除'
-      }
-      return statusMap[val]
-    },
-    statusTagFilter: function(val) {
-      const statusMap = {
-        republish: 'info',
-        active: 'success',
-        deleted: 'danger'
-      }
-      return statusMap[val]
-    },
     sourceFilter: function(val) {
       const statusMap = {
         origin: '原创',

@@ -137,6 +137,19 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/comment',
+    component: Layout,
+    meta: { title: '评论' },
+    children: [
+      {
+        path: 'index',
+        name: 'Comment',
+        component: _import('comment/index'),
+        meta: { title: '评论', icon: 'comments' }
+      }
+    ]
+  },
+  {
     path: '/image',
     component: Layout,
     meta: { title: '图片' },
