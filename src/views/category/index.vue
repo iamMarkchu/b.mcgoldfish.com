@@ -17,7 +17,7 @@
       <template slot-scope="scope">
         <span>{{scope.row.articles_count}}</span>
       </template>
-    </el-table-column>    
+    </el-table-column>
     <el-table-column align="center" label="排序" width="100">
       <template slot-scope="scope">
         <span>{{scope.row.display_order}}</span>
@@ -81,7 +81,7 @@ export default {
     },
     handleCurrentChange(val) {
       this.listQuery.page = val
-      this.getList()
+      this.fetchData()
     },
     handleUpdateForm(val) {
       for (const v of this.list) {

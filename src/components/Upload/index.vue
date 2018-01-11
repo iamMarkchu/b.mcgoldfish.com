@@ -7,8 +7,9 @@
     :on-remove="remove"
     :multiple='false'
     :file-list="previewList"
-    list-type="picture-card">
-    <i class="el-icon-plus"></i>
+    :list-type="getListType">
+    <i class="el-icon-plus" v-if="imageBtn === 'plus'"></i>
+    <el-button type="success" v-else-if="imageBtn === 'btn'">点击上传</el-button>
   </el-upload>
 </template>
 
@@ -17,7 +18,13 @@ import { getToken } from '@/utils/auth'
 import { deleteImage, UploadRequestPath } from '@/api/upload'
 export default {
   name: 'upload',
-  props: ['imageUrl'],
+  props: {
+    imageUrl: String,
+    imageBtn: {
+      type: String,
+      default: 'plus'
+    }
+  },
   created() {
     if (this.imageUrl.length > 0) {
       this.previewList = [{ name: 'pic', url: process.env.BASE_API + this.imageUrl }]
@@ -59,6 +66,11 @@ export default {
   watch: {
     imageUrl: function(val) {
       this.previewList = [{ name: 'pic', url: process.env.BASE_API + val }]
+    }
+  },
+  computed: {
+    getListType() {
+      return (this.imageBtn === 'plus') ? 'picture-card' : 'test'
     }
   }
 }
