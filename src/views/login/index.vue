@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
       class="card-box login-form">
-      <h3 class="title">xplan backend</h3>
+      <h3 class="title"> <img src="https://www.mcgoldfish.com/logo.png" /></h3>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
@@ -49,8 +49,8 @@ export default {
     }
     return {
       loginForm: {
-        username: 'demo@163.com',
-        password: 'demo123'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
